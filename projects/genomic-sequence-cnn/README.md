@@ -24,7 +24,7 @@ The effective network used in the forward pass contains:
 10. ReLU + dropout
 11. Two-logit classification output
 
-The notebook also contains unused experimental convolutional layers from architecture exploration. Those are not part of the executed forward pass.
+The historical notebook also contains unused experimental convolutional layers from architecture exploration. Those are not part of the executed forward pass. The cleaned `model.py` exposes only the effective architecture.
 
 ## Training and model selection
 
@@ -87,15 +87,32 @@ The original notebook records the following test-set AUROC values for the ten la
 
 These values are reported from the saved notebook outputs and reflect separate model-training runs for each transcription factor.
 
+## Clean implementation
+
+The repeated notebook workflow has been factored into reusable modules:
+
+- `data.py` — FASTA parsing, one-hot encoding, dataset construction, and file discovery
+- `model.py` — the effective two-layer 1D CNN
+- `train.py` — model fitting, validation accuracy, Optuna search, and retraining on train + validation
+- `evaluate.py` — class-1 probability prediction, AUROC calculation, and prediction export
+- `run_example.py` — end-to-end example for one transcription factor
+
+The refactor is intended to preserve the original experimental workflow while making the implementation easier to inspect and reuse. The saved notebook remains the record of the original runs and reported results.
+
 ## Files
 
 - `training_experiments.ipynb` — original training, hyperparameter search, evaluation, and held-out prediction workflow
-- `util.py` — FASTA parsing and DNA one-hot encoding helpers
+- `data.py` — cleaned data pipeline
+- `model.py` — cleaned CNN definition
+- `train.py` — cleaned training and tuning workflow
+- `evaluate.py` — cleaned evaluation helpers
+- `run_example.py` — minimal end-to-end usage example
+- `util.py` — original FASTA and one-hot encoding helpers retained for comparison
 - `DATA.md` — dataset provenance and local directory expectations
-- `requirements.txt` — Python dependencies used by the notebook
+- `requirements.txt` — Python dependencies
 
 ## Provenance
 
 Original coursework repository: https://github.com/janisshin/GENOME-541
 
-The original repository remains the provenance record. This portfolio copy is being reorganized and documented for readability; the experimental notebook logic has not yet been refactored.
+The original repository remains the provenance record. This portfolio version separates the historical notebook from a cleaned, reusable implementation.
