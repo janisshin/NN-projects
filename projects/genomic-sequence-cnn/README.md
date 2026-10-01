@@ -97,7 +97,7 @@ The repeated notebook workflow has been factored into reusable modules:
 - `evaluate.py` — class-1 probability prediction, AUROC calculation, and prediction export
 - `run_example.py` — end-to-end example for one transcription factor
 
-The refactor is intended to preserve the original experimental workflow while making the implementation easier to inspect and reuse. The saved notebook remains the record of the original runs and reported results.
+The refactor is intended to preserve the original experimental workflow while making the implementation easier to inspect and reuse. By default, evaluation reproduces the notebook's original class-1 scoring rule, `sigmoid(logit_1)`, so recorded AUROC values remain comparable. A `softmax` scoring option is also exposed because it is the probability formulation naturally associated with the two-logit cross-entropy model. The saved notebook remains the record of the original runs and reported results.
 
 ## Files
 
