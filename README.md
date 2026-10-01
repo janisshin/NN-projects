@@ -1,23 +1,14 @@
 # NN-projects
 
-A curated collection of neural-network projects completed across coursework and research training.
-
-This repository is organized to separate portfolio-ready projects from smaller course exercises. The original source repositories remain the provenance record; copied notebooks and scripts are preserved here for curation and cleanup.
+A collection of neural-network projects spanning genomic sequence modeling, materials-property prediction, and molecular representation learning.
 
 ## Projects
 
-| Project | Methods | Original source |
+| Project | Problem | Methods |
 | --- | --- | --- |
-| [Genomic sequence CNN](projects/genomic-sequence-cnn/) | PyTorch, 1D CNNs, Optuna hyperparameter tuning | [GENOME-541](https://github.com/janisshin/GENOME-541) |
-| [Materials MLP classification](projects/materials-mlp-classification/) | TensorFlow/Keras, MLP classification, randomized hyperparameter search | [MSE541](https://github.com/janisshin/MSE541) |
-| [Molecular self-organizing map](projects/molecular-self-organizing-map/) | Self-organizing maps, molecular descriptors, K-means | [MSE541](https://github.com/janisshin/MSE541) |
+| [Genomic sequence CNN](genomic-sequence-cnn/) | Predict transcription-factor binding from 150-bp DNA sequences | PyTorch, 1D CNNs, Optuna hyperparameter tuning |
+| [Materials MLP classification](materials-mlp-classification/) | Predict high-temperature oxidation tolerance from materials properties | TensorFlow/Keras, MLP classification, randomized cross-validation |
+| [Molecular self-organizing map](molecular-self-organizing-map/) | Organize molecular descriptor space and identify property regions | Self-organizing maps, Mordred descriptors, K-means |
+| [QM7b MLP regression](qm7b-mlp-regression/) | Predict molecular atomization energy from composition features | TensorFlow/Keras, MLP regression |
 
-## Coursework
-
-| Exercise | Methods | Original source |
-| --- | --- | --- |
-| [QM7b MLP regression](coursework/qm7b-mlp-regression/) | TensorFlow/Keras, MLP regression, architecture and optimizer experiments | [MSE541](https://github.com/janisshin/MSE541) |
-
-## Repository status
-
-The current files are direct copies from the original repositories. Project-by-project cleanup, documentation, and modernization will follow while retaining links to the original source material.
+Each project directory contains its own documentation and links back to the original source repository for provenance.
